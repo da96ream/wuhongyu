@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Mediasoup</string>
+    <string name="app_name">Travel Assistant</string>
     <string name="invitation_link">invitation link</string>
     <string name="connection">connection</string>
+    <string name="login">LoginActivity</string>
+    <string name="homepage">HomePageActivity</string>
     <string name="setting">setting</string>
     <string name="title_activity_room">Room</string>
     <string name="title_activity_settings">Settings</string>
@@ -28,4 +30,27 @@
 
     <!-- Device Preferences -->
     <string name="camera">camera</string>
+
+    <!--  BluetoothChat -->
+    <string name="bluetooth_start">bluetooth_collect</string>
+    <string name="send">Send</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Bluetooth Chat.</string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_connected_to">connected: </string>
+    <string name="title_not_connected">not connected</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">搜索蓝牙设备</string>
+
+    <!-- Options Menu -->
+    <string name="connect">Connect a device</string>
+    <string name="discoverable">Make discoverable</string>
+    <string name="note_str">Press &quot;Menu&quot; to set the data format</string>
 </resources>

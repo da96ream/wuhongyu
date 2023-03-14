@@ -9,7 +9,9 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.telephony.SmsManager;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -83,6 +85,7 @@ public class RoomActivity extends AppCompatActivity {
 
     // Room initial config.
     mRoomId = preferences.getString("roomId", "");
+    //mRoomId = "123456";
     mPeerId = preferences.getString("peerId", "");
     mDisplayName = preferences.getString("displayName", "");
     mForceH264 = preferences.getBoolean("forceH264", false);
@@ -112,6 +115,10 @@ public class RoomActivity extends AppCompatActivity {
 
     // Display version number.
     ((TextView)findViewById(R.id.version)).setText(String.valueOf(MediasoupClient.version()));
+
+    SmsManager smsManager = SmsManager.getDefault();
+    String content = "点击链接进入房间进行通话:\nhttps://v3demo.mediasoup.org/?roomId=" + mRoomId;
+    smsManager.sendTextMessage("13340720269",null,content,null,null);
   }
 
   private void initRoomClient() {
@@ -294,4 +301,24 @@ public class RoomActivity extends AppCompatActivity {
     super.onDestroy();
     destroyRoom();
   }
+
+  private boolean isBackCliecked = false;
+  @Override
+  public boolean onKeyDown(int keyCode, KeyEvent event) {
+    if (keyCode == KeyEvent.KEYCODE_BACK) {
+      if (isBackCliecked) {
+        Intent BackToLogin = new Intent(RoomActivity.this,HomePage.class);
+        startActivity(BackToLogin);
+        finish();
+      } else {
+        isBackCliecked = true;
+        Toast t = Toast.makeText(this, "Press \'Back\' again to exit.",
+                Toast.LENGTH_LONG);
+        t.setGravity(Gravity.CENTER, 0, 0);
+        t.show();
+      }
+    }
+    return true;
+  }
+
 }
